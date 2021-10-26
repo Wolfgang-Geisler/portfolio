@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_social_media_icons_social_media_icons",
+  "info": {
+    "name": "socialMediaIcons",
+    "icon": "chalkboard-teacher"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

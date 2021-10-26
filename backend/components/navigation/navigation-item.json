@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_navigation_navigation_items",
+  "info": {
+    "name": "navigationItem",
+    "icon": "angle-double-down"
+  },
+  "options": {},
+  "attributes": {
+    "page": {
+      "model": "page"
+    },
+    "priority": {
+      "type": "integer"
+    }
+  }
+}

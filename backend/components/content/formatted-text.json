@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_content_formatted_texts",
+  "info": {
+    "name": "formattedText",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}
