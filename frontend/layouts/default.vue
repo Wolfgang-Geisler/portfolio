@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <Navigation/>
+  <app>
+    <Navigation />
+    <main>
       <Nuxt />
-  </div>
+    </main>
+  </app>
 </template>
 <script>
-import Navigation from '../components/Navigation.vue'
-
+import Navigation from '../components/Nav.vue'
 export default {
-  components: {Navigation  },
+  components: { Navigation },
 }
-</script
+</script>

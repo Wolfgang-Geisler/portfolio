@@ -15,7 +15,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:"preconnect", href:"https://fonts.googleapis.com" },
+      { rel:"preconnect", href:"https://fonts.gstatic.com", crossorigin: '' },
+      { href:"https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto&display=swap", rel:"stylesheet" }
     ]
   },
 
