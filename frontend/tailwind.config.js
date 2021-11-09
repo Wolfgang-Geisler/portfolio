@@ -1,4 +1,4 @@
-const colors = require("tailwindcss/colors");
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: {
@@ -13,14 +13,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        transparent: "transparent",
-        current: "currentColor",
-        primary: "#004586",
+        transparent: 'transparent',
+        current: 'currentColor',
+        primary: '#004586',
       },
     },
     fontFamily: {
-      sansSerif: ["Roboto", sans - serif],
-      cursive: ["Alfa Slab One", cursive],
+      sans: ['Roboto', 'sans-serif'],
+      title: ['Alfa Slab One', 'cursive'],
     },
   },
-};
+}

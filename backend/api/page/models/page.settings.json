@@ -22,7 +22,8 @@
     "content": {
       "type": "dynamiczone",
       "components": [
-        "content.formatted-text"
+        "content.formatted-text",
+        "content.projects-list"
       ]
     },
     "seo": {
