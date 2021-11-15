@@ -1,12 +1,90 @@
 <template>
   <nav class="bg-white" role="navigation" aria-label="main navigation">
-    <!-- Mobile menu button-->
-    <div class="sm:visible display:flex">
-      <button
+    <div class="container">
+      <div class="logo">
+        <nuxt-link to="/">
+          <img class="w-20 mr-2" src="/logo.png" alt="Logo" />
+        </nuxt-link>
+      </div>
+      <div class="main-nav md:block" :class="{ hidden: !open, block: open }">
+        <nuxt-link to="/ueber-mich" class="nav-link">Über mich</nuxt-link>
+        <nuxt-link to="/portfolio" class="nav-link">Portfolio</nuxt-link>
+        <nuxt-link to="/kontakt" class="nav-link">Kontakt</nuxt-link>
+      </div>
+      <div class="hamburger-menu md:hidden flex justify-end">
+        <button
+          class="text-black w-10 relative focus:outline-none bg-white"
+          @click="toggleNavigation"
+        >
+          <span class="sr-only">Open main menu</span>
+          <div
+            class="
+              block
+              w-10
+              absolute
+              left-1/2
+              top-1/2
+              transform
+              -translate-x-1/2 -translate-y-1/2
+            "
+          >
+            <span
+              aria-hidden="true"
+              class="
+                block
+                absolute
+                h-0.5
+                w-5
+                bg-current
+                transform
+                transition
+                duration-500
+                ease-in-out
+              "
+              :class="{ 'rotate-45': open, ' -translate-y-1.5': !open }"
+            ></span>
+            <span
+              aria-hidden="true"
+              class="
+                block
+                absolute
+                h-0.5
+                w-5
+                bg-current
+                transform
+                transition
+                duration-500
+                ease-in-out
+              "
+              :class="{ 'opacity-0': open }"
+            ></span>
+            <span
+              aria-hidden="true"
+              class="
+                block
+                absolute
+                h-0.5
+                w-5
+                bg-current
+                transform
+                transition
+                duration-500
+                ease-in-out
+              "
+              :class="{ '-rotate-45': open, ' translate-y-1.5': !open }"
+            ></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- <div class="sm:visible md:hidden display:flex"> -->
+
+    <!-- <button
         class="text-black w-10 h-10 relative focus:outline-none bg-white flex-auto"
         @click="toggleNavigation"
-      >
-        <span class="sr-only">Open main menu</span>
+      > -->
+    <!--  <span class="sr-only">Open main menu</span>
         <div class="hidden mobile-dropdown">
           <ul class="mobile-menu-list">
             <li>
@@ -83,7 +161,6 @@
     </div>
     <div class="sm:block sm:ml-6">
       <div class="flex space-x-4">
-        <!-- Current-->
         <nuxt-link to="/">
           <img class="h-8 w-12 mr-2" src="/logo.png" alt="Logo" />
         </nuxt-link>
@@ -124,10 +201,9 @@
             text-sm
             font-medium
           "
-          >Kontakt</nuxt-link
-        >
-      </div>
-    </div>
+          >Kontakt</nuxt-link -->
+    <!--  </div>
+    </div> -->
   </nav>
 </template>
 
@@ -135,13 +211,70 @@
 export default {
   data() {
     return {
-      dropdownOpen: false,
+      open: false,
     }
   },
   methods: {
     toggleNavigation() {
-      this.dropdownOpen = !this.dropdownOpen
+      this.open = !this.open
     },
   },
 }
 </script>
+<style>
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'logo main-nav hamburger-menu'
+    '. . .'
+    '. . .';
+}
+
+.logo {
+  grid-area: logo;
+  padding-left: 1rem;
+}
+
+.main-nav {
+  grid-area: main-nav;
+  padding-left: 1rem;
+}
+
+.hamburger-menu {
+  grid-area: hamburger-menu;
+}
+
+/* mobile navigation */
+@media (max-width: 640px) {
+  .container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-auto-columns: 1fr;
+    gap: 0em 0em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      'logo .hamburger-menu'
+      'nav-link nav-link';
+      justify-content: stretch;
+      width: 100%;
+      height: 100%;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .hamburger-menu {
+    grid-area: hamburger-menu;
+  }
+
+  .nav-link {
+    grid-area: nav-link;
+  }
+}
+</style>
