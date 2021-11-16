@@ -26,7 +26,7 @@
   </footer>
 </template>
 <style>
-.container-footer {
+/* .container-footer {
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-columns: auto 1fr;
@@ -41,5 +41,5 @@
 .logo-footer {
   grid-area: logo-footer;
   padding-left: 15rem;
-}
+} */
 </style>

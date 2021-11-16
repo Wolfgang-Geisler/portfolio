@@ -7,9 +7,11 @@
         </nuxt-link>
       </div>
       <div class="main-nav md:block" :class="{ hidden: !open }">
-        <nuxt-link to="/ueber-mich" class="nav-link">Über mich</nuxt-link>
-        <nuxt-link to="/portfolio" class="nav-link">Portfolio</nuxt-link>
-        <nuxt-link to="/kontakt" class="nav-link">Kontakt</nuxt-link>
+        <ul class="flex flex-col items-center md:flex-row">
+        <li><nuxt-link to="/ueber-mich" class="nav-link">Über mich</nuxt-link></li>
+        <li><nuxt-link to="/portfolio" class="nav-link">Portfolio</nuxt-link></li>
+        <li><nuxt-link to="/kontakt" class="nav-link">Kontakt</nuxt-link></li>
+        </ul>
       </div>
       <div class="hamburger-menu md:hidden flex justify-end">
         <button
@@ -238,7 +240,6 @@ export default {
 
 .main-nav {
   grid-area: main-nav;
-  padding-left: 1rem;
 }
 
 .hamburger-menu {
@@ -280,14 +281,14 @@ export default {
 @media (max-width: 640px) {
   .container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
     grid-auto-columns: 1fr;
     gap: 0em 0em;
     grid-auto-flow: column;
     grid-template-areas:
-      'logo .hamburger-menu'
-      'main-nav main-nav main-nav';
+      'logo hamburger-menu'
+      'main-nav main-nav';
     justify-content: stretch;
     width: 100%;
     height: 100%;
