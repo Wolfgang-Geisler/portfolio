@@ -6,7 +6,7 @@
           <img class="w-20 mr-2" src="/logo.png" alt="Logo" />
         </nuxt-link>
       </div>
-      <div class="main-nav md:block" :class="{ hidden: !open, block: open }">
+      <div class="main-nav md:block" :class="{ hidden: !open }">
         <nuxt-link to="/ueber-mich" class="nav-link">Über mich</nuxt-link>
         <nuxt-link to="/portfolio" class="nav-link">Portfolio</nuxt-link>
         <nuxt-link to="/kontakt" class="nav-link">Kontakt</nuxt-link>
@@ -225,13 +225,10 @@ export default {
 .container {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas:
-    'logo main-nav hamburger-menu'
-    '. . .'
-    '. . .';
+  grid-template-areas: 'logo main-nav hamburger-menu';
 }
 
 .logo {
@@ -249,6 +246,37 @@ export default {
 }
 
 /* mobile navigation */
+/* @media (max-width: 640px) {
+  .container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 0em;
+    grid-auto-flow: row;
+      width: 100%;
+      height: 100%;
+  }
+  .main-nav {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-auto-flow: column;
+  }
+
+  .logo {
+    grid-column-start: 2;
+}
+
+  .hamburger-menu {
+    grid-column-start: 3;
+  } */
+/*
+  .nav-link {
+    grid-area: nav-link;
+  }
+  */
+
+
+/*mobile navigation*/
 @media (max-width: 640px) {
   .container {
     display: grid;
@@ -256,25 +284,22 @@ export default {
     grid-template-rows: auto auto;
     grid-auto-columns: 1fr;
     gap: 0em 0em;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
     grid-template-areas:
       'logo .hamburger-menu'
-      'nav-link nav-link';
-      justify-content: stretch;
-      width: 100%;
-      height: 100%;
+      'main-nav main-nav main-nav';
+    justify-content: stretch;
+    width: 100%;
+    height: 100%;
   }
-
   .logo {
     grid-area: logo;
   }
-
   .hamburger-menu {
     grid-area: hamburger-menu;
   }
-
-  .nav-link {
-    grid-area: nav-link;
+  .main-nav {
+    grid-area: main-nav;
   }
 }
 </style>
