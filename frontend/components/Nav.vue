@@ -8,12 +8,12 @@
       </div>
       <div class="main-nav md:block" :class="{ hidden: !open }">
         <ul class="flex flex-col items-center md:flex-row">
-        <li><nuxt-link to="/ueber-mich" class="nav-link">Über mich</nuxt-link></li>
-        <li><nuxt-link to="/portfolio" class="nav-link">Portfolio</nuxt-link></li>
-        <li><nuxt-link to="/kontakt" class="nav-link">Kontakt</nuxt-link></li>
+        <li><nuxt-link to="/ueber-mich" class="nav-link block">Über mich</nuxt-link></li>
+        <li><nuxt-link to="/portfolio" class="nav-link block">Portfolio</nuxt-link></li>
+        <li><nuxt-link to="/kontakt" class="nav-link block">Kontakt</nuxt-link></li>
         </ul>
       </div>
-      <div class="hamburger-menu md:hidden flex justify-end">
+      <div class="hamburger-menu md:hidden flex-col justify-start">
         <button
           class="text-black w-10 relative focus:outline-none bg-white"
           @click="toggleNavigation"
