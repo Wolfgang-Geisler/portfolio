@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container-footer mx-auto mt-8">
+    <div class="container-footer mx-auto mt-8 pl-8">
       <div class="footer-menu">
         <nuxt-link to="/datenschutz" class="nav-link">Datenschutz</nuxt-link>
         <nuxt-link to="/impressum" class="nav-link">Impressum</nuxt-link>
@@ -17,9 +17,8 @@
   grid-auto-columns: 1fr;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
-  gap: 0rem 20rem;
+  gap: 0rem 15rem;
   grid-template-areas: 'footer-menu logo-footer';
-  width: 100%;
 }
 .footer-menu {
   grid-area: footer-menu;
@@ -36,10 +35,14 @@
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
-    grid-template-areas: 'footer-menu logo-footer';
+    grid-template-areas:
+      'footer-menu footer-menu'
+      'logo-footer logo-footer';
+    justify-items: center;
   }
   .footer-menu {
     grid-area: footer-menu;
+    margin-bottom: 1rem;
   }
   .logo-footer {
     grid-area: logo-footer;
