@@ -8,14 +8,30 @@
       </div>
       <div class="main-nav mt-2.5 md:block" :class="{ hidden: !open }">
         <ul class="flex flex-col items-center md:flex-row">
-        <li><nuxt-link to="/ueber-mich" class="nav-link block">Über mich</nuxt-link></li>
-        <li><nuxt-link to="/portfolio" class="nav-link block">Portfolio</nuxt-link></li>
-        <li><nuxt-link to="/kontakt" class="nav-link block">Kontakt</nuxt-link></li>
+          {{navigations}}
+          <NuxtLink
+          v-for="navigationLink in navigations.navigationItem"
+          :key="navigationLink.id"
+          :to="navigationLink.slug"
+          ><li>{{navigationLink.title}}</li></NuxtLink>
+          <!-- <li>
+            <nuxt-link to="/ueber-mich" class="nav-link block"
+              >Über mich</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/portfolio" class="nav-link block"
+              >Portfolio</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/kontakt" class="nav-link block">Kontakt</nuxt-link>
+          </li> -->
         </ul>
       </div>
       <div class="hamburger-menu flex md:hidden flex-col justify-start mt-2.5">
         <button
-          class="text-black w-10 relative focus:outline-none bg-white"
+          class="text-black w-10 h-10 p-6 relative focus:outline-none bg-white"
           @click="toggleNavigation"
         >
           <span class="sr-only">Open main menu</span>
@@ -79,137 +95,12 @@
         </button>
       </div>
     </div>
-
-    <!-- <div class="sm:visible md:hidden display:flex"> -->
-
-    <!-- <button
-        class="text-black w-10 h-10 relative focus:outline-none bg-white flex-auto"
-        @click="toggleNavigation"
-      > -->
-    <!--  <span class="sr-only">Open main menu</span>
-        <div class="hidden mobile-dropdown">
-          <ul class="mobile-menu-list">
-            <li>
-              <nuxt-link
-                to="/"
-                class="
-                  navbar-item
-                  block
-                  text-sm
-                  px-2
-                  py-4
-                  hover:text-white hover:bg-primary
-                  transition
-                  duration-300
-                  flex-auto
-                "
-                >Home</nuxt-link
-              >
-            </li>
-            <li>
-              <nuxt-link
-                to="/ueber-mich"
-                class="
-                  navbar-item
-                  block
-                  text-sm
-                  px-2
-                  py-4
-                  hover:text-white hover:bg-primary
-                  transition
-                  duration-300
-                  flex-auto
-                "
-                >Über mich</nuxt-link
-              >
-            </li>
-            <li>
-              <nuxt-link
-                to="/portfolio"
-                class="
-                  navbar-item
-                  block
-                  text-sm
-                  px-2
-                  py-4
-                  hover:text-white hover:bg-primary
-                  transition
-                  duration-300
-                  flex-auto
-                "
-                >Portfolio</nuxt-link
-              >
-            </li>
-            <li>
-              <nuxt-link
-                to="/contact"
-                class="
-                  navbar-item
-                  block
-                  text-sm
-                  px-2
-                  py-4
-                  hover:text-white hover:bg-primary
-                  transition
-                  duration-300
-                  flex-auto
-                "
-                >Kontakt</nuxt-link
-              >
-            </li>
-          </ul>
-        </div>
-      </button>
-    </div>
-    <div class="sm:block sm:ml-6">
-      <div class="flex space-x-4">
-        <nuxt-link to="/">
-          <img class="h-8 w-12 mr-2" src="/logo.png" alt="Logo" />
-        </nuxt-link>
-        <nuxt-link
-          to="/ueber-mich"
-          class="
-            text-black
-            hover:bg-primary hover:text-white
-            px-3
-            py-2
-            rounded-md
-            text-sm
-            font-medium
-          "
-          >Über mich</nuxt-link
-        >
-        <nuxt-link
-          to="/portfolio"
-          class="
-            text-black
-            hover:bg-primary hover:text-white
-            px-3
-            py-2
-            rounded-md
-            text-sm
-            font-medium
-          "
-          >Portfolio</nuxt-link
-        >
-        <nuxt-link
-          to="/kontakt"
-          class="
-            text-black
-            hover:bg-primary hover:text-white
-            px-3
-            py-2
-            rounded-md
-            text-sm
-            font-medium
-          "
-          >Kontakt</nuxt-link -->
-    <!--  </div>
-    </div> -->
   </nav>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -219,6 +110,12 @@ export default {
   methods: {
     toggleNavigation() {
       this.open = !this.open
+    },
+  },
+  computed: {
+    ...mapGetters(['navigations']),
+    mainNavigation() {
+      return this.navigations.find((nav) => nav.slug === 'main')
     },
   },
 }
@@ -245,37 +142,6 @@ export default {
   grid-area: hamburger-menu;
 }
 
-/* mobile navigation */
-/* @media (max-width: 640px) {
-  .container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
-    grid-gap: 0em;
-    grid-auto-flow: row;
-      width: 100%;
-      height: 100%;
-  }
-  .main-nav {
-    grid-row-start: 2;
-    grid-column-start: 3;
-    grid-auto-flow: column;
-  }
-
-  .logo {
-    grid-column-start: 2;
-}
-
-  .hamburger-menu {
-    grid-column-start: 3;
-  } */
-/*
-  .nav-link {
-    grid-area: nav-link;
-  }
-  */
-
-
 /*mobile navigation*/
 @media (max-width: 640px) {
   .container-nav {
@@ -285,9 +151,7 @@ export default {
     grid-auto-columns: 1fr;
     gap: 0em 0em;
     grid-auto-flow: column;
-    grid-template-areas:
-      'logo main-nav hamburger-menu';
-    
+    grid-template-areas: 'logo main-nav hamburger-menu';
   }
   .logo {
     grid-area: logo;

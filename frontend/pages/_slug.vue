@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>{{page.title}}</h1>
-    <p>{{page}}</p>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page }}</p>
   </div>
 </template>
 

@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1 class="font-title">home</h1>
+    {{ home.title }}
+    {{ home.content[0].title }}
     {{ home }}
   </div>
 </template>

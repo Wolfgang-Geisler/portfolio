@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+}
+
 @layer components {
   .nav-link {
     @apply text-black
@@ -13,4 +25,11 @@
     text-sm
     font-medium;
   }
-} 
+  .fa {
+    @apply
+    transform scale-110
+    hover:text-primary
+    hover:-translate-y-0 hover:scale-125
+   transition ease-in-out duration-700;
+  }
+}
