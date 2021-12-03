@@ -24,8 +24,16 @@
     </div>
     <div class="container-footer mx-auto mb-4 mt-8 px-8">
       <div class="footer-menu">
-        <nuxt-link to="/datenschutz" class="nav-link">Datenschutz</nuxt-link>
-        <nuxt-link to="/impressum" class="nav-link">Impressum</nuxt-link>
+        <!-- {{footerNavigation.navigationItem}} -->
+        <!-- <NuxtLink
+          v-for="navigationFooterLink in footerNavigation.navigationItem"
+          :key="navigationFooterLink.id"
+          :to="navigationFooterLink.slug"
+          ><li>{{ navigationFooterLink.title }}</li></NuxtLink
+        > -->
+
+        <!-- <nuxt-link to="/datenschutz" class="nav-link">Datenschutz</nuxt-link>
+        <nuxt-link to="/impressum" class="nav-link">Impressum</nuxt-link> -->
       </div>
       <div class="logo-footer flex sm:justify-end">
         <p class="text-xs mt-1.5">&copy; Wolfgang Geisler 2021</p>
@@ -41,7 +49,7 @@ export default {
     ...mapGetters(['socialMediaIcons']),
     ...mapGetters(['navigations']),
     footerNavigation() {
-      return this.navigations.find((nav) => nav.key === 'legal')
+      return this.navigations.find((nav) => nav.slug === 'legal')
     },
   },
   methods: {
