@@ -11,14 +11,18 @@
           v-if="mainNavigation"
           class="flex flex-col items-center md:flex-row"
         >
-          <NuxtLink
-            v-for="navigationLink in mainNavigation.navigationItem"
-            :key="navigationLink.id"
-            :to="'/' + navigationLink.slug"
-            ><li>{{ navigationLink.title }}</li></NuxtLink
-          >
-
-          <!-- <nuxt-link to="/ueber-mich" class="nav-link block"
+          <li>
+            <NuxtLink
+              class="nav-link block"
+              v-for="navigationLink in mainNavigation.navigationItem"
+              :key="navigationLink.id"
+              :to="'/' + navigationLink.page.slug"
+            >
+              {{ navigationLink.page.title }}</NuxtLink
+            >
+          </li>
+          <li>
+            <nuxt-link to="/ueber-mich" class="nav-link block"
               >Über mich</nuxt-link
             >
           </li>
@@ -29,7 +33,7 @@
           </li>
           <li>
             <nuxt-link to="/kontakt" class="nav-link block">Kontakt</nuxt-link>
-          </li> -->
+          </li>
         </ul>
       </div>
       <div class="hamburger-menu flex md:hidden flex-col justify-start mt-2.5">
