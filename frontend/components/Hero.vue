@@ -11,6 +11,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import { getStrapiMedia } from '../utils/medias'
 
 export default {
