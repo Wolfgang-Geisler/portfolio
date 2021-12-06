@@ -6,17 +6,17 @@
     <div class="footer-icons flex justify-center space-x-4">
       <template v-for="socialMedia in socialMediaIcons"
         ><a
-          class="fa"
+          v-if="socialMedia.text === 'e-mail'"
           :key="socialMedia.id"
           :href="'mailto:' + socialMedia.url"
-          v-if="socialMedia.text === 'e-mail'"
+          class="fa"
           ><fa :icon="['fas', socialMedia.icon]" />
         </a>
         <a
-          class="fa"
+          v-else
           :key="socialMedia.id"
           :href="socialMedia.url"
-          v-else
+          class="fa"
           target="_blank"
         >
           <fa :icon="['fab', socialMedia.icon]" /> </a
@@ -24,16 +24,18 @@
     </div>
     <div class="container-footer mx-auto mb-4 mt-8 px-8">
       <div class="footer-menu">
-        <!-- {{footerNavigation.navigationItem}} -->
-        <!-- <NuxtLink
-          v-for="navigationFooterLink in footerNavigation.navigationItem"
-          :key="navigationFooterLink.id"
-          :to="navigationFooterLink.slug"
-          ><li>{{ navigationFooterLink.title }}</li></NuxtLink
-        > -->
-
-        <!-- <nuxt-link to="/datenschutz" class="nav-link">Datenschutz</nuxt-link>
-        <nuxt-link to="/impressum" class="nav-link">Impressum</nuxt-link> -->
+        <ul v-if="footerNavigation" class="flex">
+          <li
+            v-for="navigationFooterLink in footerNavigation.navigationItem"
+            :key="navigationFooterLink.id"
+          >
+            <NuxtLink
+              :to="'/' + navigationFooterLink.page.slug"
+              class="nav-link block"
+              >{{ navigationFooterLink.page.title }}</NuxtLink
+            >
+          </li>
+        </ul>
       </div>
       <div class="logo-footer flex sm:justify-end">
         <p class="text-xs mt-1.5">&copy; Wolfgang Geisler 2021</p>

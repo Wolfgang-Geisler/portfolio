@@ -11,28 +11,16 @@
           v-if="mainNavigation"
           class="flex flex-col items-center md:flex-row"
         >
-          <li>
+          <li
+            v-for="navigationLink in mainNavigation.navigationItem"
+            :key="navigationLink.id"
+          >
             <NuxtLink
-              class="nav-link block"
-              v-for="navigationLink in mainNavigation.navigationItem"
-              :key="navigationLink.id"
               :to="'/' + navigationLink.page.slug"
+              class="nav-link block"
             >
               {{ navigationLink.page.title }}</NuxtLink
             >
-          </li>
-          <li>
-            <nuxt-link to="/ueber-mich" class="nav-link block"
-              >Über mich</nuxt-link
-            >
-          </li>
-          <li>
-            <nuxt-link to="/portfolio" class="nav-link block"
-              >Portfolio</nuxt-link
-            >
-          </li>
-          <li>
-            <nuxt-link to="/kontakt" class="nav-link block">Kontakt</nuxt-link>
           </li>
         </ul>
       </div>
@@ -107,7 +95,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { getStrapiMedia } from '../utils/medias'
 
 export default {
   data() {
@@ -115,16 +102,15 @@ export default {
       open: false,
     }
   },
-  methods: {
-    toggleNavigation() {
-      this.open = !this.open
-    },
-    getStrapiMedia,
-  },
   computed: {
     ...mapGetters(['navigations']),
     mainNavigation() {
       return this.navigations.find((nav) => nav.slug === 'main')
+    },
+  },
+  methods: {
+    toggleNavigation() {
+      this.open = !this.open
     },
   },
 }

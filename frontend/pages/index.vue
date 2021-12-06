@@ -1,18 +1,51 @@
 <template>
-  <div>
-    <h1 class="font-title">home</h1>
-    {{ home.title }}
-    {{ home.content[0].title }}
-    {{ home }}
-  </div>
+  <main>
+  <template v-for="section in home.content">
+    <Hero
+    v-if="section._component === 'content.hero'"
+    :key="section.id"
+    :intro="section.intro"
+    :image="section.image"
+    :callToAction="section.callToActionUrl"
+    />
+    <ProjectsList
+    v-if="section._component === 'content.projects-list'"
+    :key="section.id"
+    :title="section.title"
+    :projects="section.projects"
+    />
+  </template>
+  </main>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { getMetaTags } from '../utils/seo'
 import { getStrapiMedia } from '../utils/medias'
+import { Hero }  from '../components/Hero.vue'
+import {ProjectsList} from '../components/ProjectsList.vue'
+
 export default {
   async asyncData({ $axios }) {
     const home = await $axios.$get('/pages?slug=home')
     return { home: home[0] }
+  },
+  head() {
+    const { seo } = this.home
+    const { defaultSeo } = this.global
+
+    const fullSeo = {
+      ...defaultSeo,
+      ...seo,
+    }
+    return {
+      titleTemplate: `%s`,
+      title: fullSeo.metaTitle,
+      meta: getMetaTags(fullSeo),
+    }
+  },
+  computed: {
+    ...mapGetters(['global']),
   },
   methods: {
     getStrapiMedia,

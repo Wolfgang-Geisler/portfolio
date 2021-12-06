@@ -30,4 +30,4 @@ export const getters = {
   navigations(state) {
     return state.navigations
   },
-};
+}

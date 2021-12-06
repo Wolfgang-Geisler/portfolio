@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_content_heroes",
+  "info": {
+    "name": "hero",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "intro": {
+      "type": "text"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "callToActionUrl": {
+      "type": "string"
+    }
+  }
+}
