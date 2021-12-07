@@ -4,14 +4,13 @@
     <img v-if="image" :src="image.formats.small.url" alt="image.name" />
     <button type="button">
       <NuxtLink
-        :to="'/' + mainNavigation.navigationItem.id[1].page.slug"
-      ></NuxtLink
-      >{{ callToActionUrl }}
+        :to="'/' + callToActionUrl"
+      ></NuxtLink>
+      {{ callToActionText }}
     </button>
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
 import { getStrapiMedia } from '../utils/medias'
 
 export default {
@@ -28,11 +27,9 @@ export default {
       type: String,
       default: null,
     },
-  },
-  computed: {
-    ...mapGetters(['navigations']),
-    mainNavigation() {
-      return this.navigations.find((nav) => nav.slug === 'main')
+    callToActionText: {
+      type: String,
+      default: null,
     },
   },
   methods: {

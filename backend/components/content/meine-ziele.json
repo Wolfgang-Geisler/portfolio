@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_meine_zieles",
+  "info": {
+    "name": "meineZiele",
+    "icon": "arrow-circle-up"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

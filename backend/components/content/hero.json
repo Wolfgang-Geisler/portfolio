@@ -2,7 +2,8 @@
   "collectionName": "components_content_heroes",
   "info": {
     "name": "hero",
-    "icon": "align-center"
+    "icon": "align-center",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,6 +23,9 @@
       "pluginOptions": {}
     },
     "callToActionUrl": {
+      "type": "string"
+    },
+    "callToActionText": {
       "type": "string"
     }
   }

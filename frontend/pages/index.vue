@@ -1,20 +1,26 @@
 <template>
   <main>
-  <template v-for="section in home.content">
-    <Hero
-    v-if="section._component === 'content.hero'"
-    :key="section.id"
-    :intro="section.intro"
-    :image="section.image"
-    :callToAction="section.callToActionUrl"
-    />
-    <ProjectsList
-    v-if="section._component === 'content.projects-list'"
-    :key="section.id"
-    :title="section.title"
-    :projects="section.projects"
-    />
-  </template>
+    <template v-for="section in home.content">
+      <Hero
+        v-if="section._component === 'content.hero'"
+        :key="section.id"
+        :intro="section.intro"
+        :image="section.image"
+        :callToAction="section.callToActionUrl"
+      />
+      <ProjectsList
+        v-if="section._component === 'content.projects-list'"
+        :key="section.id"
+        :title="section.title"
+        :projects="section.projects"
+      />
+      <MeineZiele
+        v-if="section._component === 'content.meine-ziele'"
+        :key="section.id"
+        :title="section.title"
+        :text="section.text"
+      />
+    </template>
   </main>
 </template>
 
@@ -22,8 +28,9 @@
 import { mapGetters } from 'vuex'
 import { getMetaTags } from '../utils/seo'
 import { getStrapiMedia } from '../utils/medias'
-import { Hero }  from '../components/Hero.vue'
-import {ProjectsList} from '../components/ProjectsList.vue'
+import Hero from '../components/Hero.vue'
+import ProjectsList from '../components/ProjectsList.vue'
+import meineZiele from '../components/meineZiele.vue'
 
 export default {
   async asyncData({ $axios }) {

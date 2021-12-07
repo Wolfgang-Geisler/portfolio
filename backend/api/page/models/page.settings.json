@@ -24,7 +24,8 @@
       "components": [
         "content.formatted-text",
         "content.projects-list",
-        "content.hero"
+        "content.hero",
+        "content.meine-ziele"
       ]
     },
     "seo": {
