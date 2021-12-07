@@ -1,6 +1,6 @@
 <template>
   <div class="projectsList-container">
-    <button type="button"><NuxtLink :to="'/'"></NuxtLink>{{}}</button>
+    <!-- <button type="button"><NuxtLink :to="'/'"></NuxtLink>{{}}</button> -->
   </div>
 </template>
 <script>
@@ -13,7 +13,7 @@ export default {
       default: null,
     },
     projects: {
-      type: Object,
+      type: Array,
       default: null,
     },
   },

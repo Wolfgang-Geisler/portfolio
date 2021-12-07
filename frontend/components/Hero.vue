@@ -1,13 +1,10 @@
 <template>
   <div class="hero-container">
     <h3>{{ intro }}</h3>
-    <img v-if="image" :src="image.formats.small.url" alt="image.name" />
-    <button type="button">
-      <NuxtLink
-        :to="'/' + callToActionUrl"
-      ></NuxtLink>
-      {{ callToActionText }}
-    </button>
+    <img v-if="image" :src="getStrapiMedia(image.formats.small.url)" alt="image.name" />
+      <!-- <NuxtLink class="bg-lightBlue hover:bg-white text-primary font-bold py-2 px-4 rounded"
+        :to="callToActionUrl"
+      >{{ callToActionText }}</NuxtLink> -->
   </div>
 </template>
 <script>

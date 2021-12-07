@@ -2,20 +2,21 @@
   <main>
     <template v-for="section in home.content">
       <Hero
-        v-if="section._component === 'content.hero'"
+        v-if="section.__component === 'content.hero'"
         :key="section.id"
         :intro="section.intro"
         :image="section.image"
-        :callToAction="section.callToActionUrl"
+        :call-to-action-text="section.callToActionText"
+        :call-to-action-url="section.callToActionUrl"
       />
       <ProjectsList
-        v-if="section._component === 'content.projects-list'"
+        v-if="section.__component === 'content.projects-list'"
         :key="section.id"
         :title="section.title"
         :projects="section.projects"
       />
-      <MeineZiele
-        v-if="section._component === 'content.meine-ziele'"
+      <MyGoals
+        v-if="section.__component === 'content.meine-ziele'"
         :key="section.id"
         :title="section.title"
         :text="section.text"
@@ -30,9 +31,14 @@ import { getMetaTags } from '../utils/seo'
 import { getStrapiMedia } from '../utils/medias'
 import Hero from '../components/Hero.vue'
 import ProjectsList from '../components/ProjectsList.vue'
-import meineZiele from '../components/meineZiele.vue'
+import MyGoals from '../components/MyGoals.vue'
 
 export default {
+  components: {
+    Hero,
+    ProjectsList,
+    MyGoals,
+  },
   async asyncData({ $axios }) {
     const home = await $axios.$get('/pages?slug=home')
     return { home: home[0] }

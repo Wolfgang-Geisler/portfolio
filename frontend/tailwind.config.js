@@ -16,6 +16,7 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         primary: '#004586',
+        lightBlue: '#a3ccf3',
       },
     },
     fontFamily: {
