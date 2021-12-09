@@ -1,7 +1,36 @@
 <template>
   <div>
-    <h1>{{ page.title }}</h1>
-    <p>{{ page }}</p>
+    <main>
+      <template v-for="section in pages.content">
+        <About
+          v-if="section.__component === 'content.formatted-text'"
+          :key="section.id"
+          :text="section.text"
+          :image="section.image"
+        />
+        <Portfolio
+          v-if="section.__component === 'content.projects-list'"
+          :key="section.id"
+          :title="section.title"
+          :projects="section.projects"
+        />
+        <!-- <Contact
+        v-if="section.__component === ''"
+      /> -->
+        <Datenschutz
+          v-if="section.__component === 'content.formatted-text'"
+          :key="section.id"
+          :title="section.title"
+          :text="section.text"
+        />
+        <Impressum
+          v-if="section.__component === 'content.formatted-text'"
+          :key="section.id"
+          :title="section.title"
+          :text="section.text"
+        />
+      </template>
+    </main>
   </div>
 </template>
 

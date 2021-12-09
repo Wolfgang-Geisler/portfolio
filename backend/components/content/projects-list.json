@@ -12,6 +12,12 @@
     },
     "title": {
       "type": "string"
+    },
+    "callToActionUrl": {
+      "type": "string"
+    },
+    "callToActionText": {
+      "type": "string"
     }
   }
 }

@@ -1,16 +1,12 @@
 <template>
   <div>
     <div>
-      <form
-        accept-charset="UTF-8"
-        v-on:submit.prevent="onSubmit()"
-        method="POST"
-      >
+      <form @submit.prevent="onSubmit()">
         <div>
           <label>Email Adresse</label>
           <input
-            type="email"
             v-model="email"
+            type="email"
             class="form-control"
             placeholder="Email"
           />
@@ -18,8 +14,8 @@
         <div>
           <label>Name</label>
           <input
-            type="text"
             v-model="name"
+            type="text"
             class="form-control"
             placeholder="Name"
             required="required"
@@ -28,8 +24,8 @@
         <div>
           <label>Betreff</label>
           <input
-            type="text"
             v-model="reference"
+            type="text"
             class="form-control"
             placeholder="Betreff"
             required="required"
@@ -38,16 +34,16 @@
         <div>
           <label>Nachricht</label>
           <textarea
-            type="text"
             v-model="message"
+            type="text"
             class="form-control"
             placeholder="Nachricht"
             required="required"
           ></textarea>
         </div>
         <hr />
-        <div class="success" v-if="isSuccess">Danke, für Ihre Nachricht!</div>
-        <div class="error" v-else>Leider, ist ein Fehler passiert!</div>
+        <div v-if="isSuccess" class="success">Danke, für Ihre Nachricht!</div>
+        <div v-if="error" class="error">Leider, ist ein Fehler passiert!</div>
         <button type="submit">Senden</button>
       </form>
     </div>
@@ -58,9 +54,6 @@ import axios from 'axios'
 
 export default {
   name: 'Contact',
-  props: {
-    msg: String,
-  },
   data() {
     return {
       loading: true,
@@ -74,7 +67,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      let data = {
+      const data = {
         name: this.name,
         email: this.email,
         message: this.message,
@@ -90,14 +83,12 @@ export default {
             },
           }
         )
-        .then(
-          (response) => {
-            this.isSuccess = response.data.success
-          },
-          (response) => {
-            this.error = response.data.error
-          }
-        )
+        .then((response) => {
+          this.isSuccess = response.data.success
+        })
+        .catch((error) => {
+          this.error = error.message
+        })
     },
   },
 }

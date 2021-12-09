@@ -1,10 +1,20 @@
 <template>
   <div class="hero-container">
-    <h3>{{ intro }}</h3>
-    <img v-if="image" :src="getStrapiMedia(image.formats.small.url)" alt="image.name" />
-      <!-- <NuxtLink class="bg-lightBlue hover:bg-white text-primary font-bold py-2 px-4 rounded"
+    <div class="hero-image">
+      <img
+        v-if="image"
+        :src="getStrapiMedia(image.formats.small.url)"
+        alt="image.name"
+      />
+    </div>
+    <div class="intro-text flex flex-col items-center mx-auto px-4">
+      <h3>{{ intro }}</h3>
+      <NuxtLink
+        class="bg-light hover:bg-white text-primary font-bold py-2 px-4 mt-8 rounded"
         :to="callToActionUrl"
-      >{{ callToActionText }}</NuxtLink> -->
+        >{{ callToActionText }}</NuxtLink
+      >
+    </div>
   </div>
 </template>
 <script>
@@ -34,3 +44,23 @@ export default {
   },
 }
 </script>
+<style>
+.hero-container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0em 0em;
+  grid-template-areas:
+    '. hero-image'
+    'intro-text hero-image';
+  justify-items: center;
+}
+.intro-text {
+  grid-area: intro-text;
+}
+.hero-image {
+  grid-area: hero-image;
+}
+</style>

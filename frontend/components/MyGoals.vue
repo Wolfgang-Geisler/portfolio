@@ -1,7 +1,9 @@
 <template>
-  <div class="meineZiele-container">
-      <div class="meineZiele-title">{{title}}</div>
-      <div class="meineZiele-content">{{text}}</div>
+  <div class="meineZiele-container my-8 px-4">
+    <div class="meineZiele-title text-light flex justify-center mb-4">
+      <h2>{{ title }}</h2>
+    </div>
+    <div class="meineZiele-content">{{ text }}</div>
   </div>
 </template>
 <script>

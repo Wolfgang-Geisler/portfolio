@@ -14,6 +14,8 @@
         :key="section.id"
         :title="section.title"
         :projects="section.projects"
+        :call-to-action-text="section.callToActionText"
+        :call-to-action-url="section.callToActionUrl"
       />
       <MyGoals
         v-if="section.__component === 'content.meine-ziele'"

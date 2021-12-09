@@ -4,13 +4,15 @@
 
 @layer base {
   h1 {
-    @apply text-3xl;
+    @apply text-3xl
+    font-title;
   }
   h2 {
-    @apply text-2xl;
+    @apply text-2xl
+    font-title;
   }
   h3 {
-    @apply text-lg;
+    @apply text-lg
   }
 }
 
