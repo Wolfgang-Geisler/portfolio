@@ -10,7 +10,17 @@
     <div class="intro-text flex flex-col items-center mx-auto px-4">
       <h3>{{ intro }}</h3>
       <NuxtLink
-        class="bg-light hover:bg-white text-primary font-bold py-2 px-4 mt-8 rounded"
+        v-if="callToActionUrl && callToActionText"
+        class="
+          bg-light
+          hover:bg-white
+          text-primary
+          font-bold
+          py-2
+          px-4
+          mt-8
+          rounded
+        "
         :to="callToActionUrl"
         >{{ callToActionText }}</NuxtLink
       >
