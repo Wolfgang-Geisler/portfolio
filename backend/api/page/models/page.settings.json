@@ -25,7 +25,8 @@
         "content.formatted-text",
         "content.projects-list",
         "content.hero",
-        "content.meine-ziele"
+        "content.meine-ziele",
+        "content.media"
       ]
     },
     "seo": {

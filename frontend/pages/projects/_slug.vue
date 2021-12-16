@@ -8,7 +8,6 @@
     </div>
   </main>
 </template>
-
 <script>
 import { getStrapiMedia } from '../../utils/medias'
 export default {

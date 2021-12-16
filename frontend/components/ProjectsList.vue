@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary py-8 my-8">
+  <div class="bg-primary py-16">
     <div class="project-container my-8 px-4">
       <div class="title text-light flex justify-center">
         <h2>{{ title }}</h2>
@@ -12,14 +12,14 @@
             :class="{ 'md:flex-row-reverse': index % 2 === 0 }"
             class="flex flex-col md:flex-row text-white my-8"
           >
-            <div class="project-image flex justify-center my-4">
+            <div class="project-image my-4 px-4 w-1/2">
               <img
                 v-if="project.image"
                 :src="getStrapiMedia(project.image.formats.small.url)"
                 alt="project.image.name"
               />
             </div>
-            <div class="flex-grow flex flex-col space-y-4 px-4">
+            <div class="w-1/2 flex flex-col space-y-4 px-4">
               <div>
                 <h3 class="project-title font-title my-4">
                   {{ project.title }}

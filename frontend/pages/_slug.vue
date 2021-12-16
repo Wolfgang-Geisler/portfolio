@@ -1,12 +1,6 @@
 <template>
   <main>
     <template v-for="section in page.content">
-      <About
-        v-if="section.__component === 'content.formatted-text'"
-        :key="section.id"
-        :text="section.text"
-        :image="section.image"
-      />
       <Hero
         v-if="section.__component === 'content.hero'"
         :key="section.id"
@@ -15,26 +9,31 @@
         :call-to-action-text="section.callToActionText"
         :call-to-action-url="section.callToActionUrl"
       />
-      <Portfolio
+      <Projects-List
         v-if="section.__component === 'content.projects-list'"
         :key="section.id"
         :title="section.title"
         :projects="section.projects"
+        :call-to-action-text="section.callToActionText"
+        :call-to-action-text2="section.callToActionText2"
+        :call-to-action-url="section.callToActionUrl"
       />
-      <!-- <Contact
-        v-if="section.__component === ''"
-      /> -->
-      <Datenschutz
+      <MyGoals
+        v-if="section.__component === 'content.meine-ziele'"
+        :key="section.id"
+        :title="section.title"
+        :text="section.text"
+      />
+      <Formatted-Text
         v-if="section.__component === 'content.formatted-text'"
         :key="section.id"
         :title="section.title"
         :text="section.text"
       />
-      <Impressum
-        v-if="section.__component === 'content.formatted-text'"
+      <Media
+        v-if="section.__component === 'content.media'"
         :key="section.id"
-        :title="section.title"
-        :text="section.text"
+        :image="section.image"
       />
     </template>
   </main>

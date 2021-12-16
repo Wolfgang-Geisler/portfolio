@@ -9,12 +9,13 @@
         :call-to-action-text="section.callToActionText"
         :call-to-action-url="section.callToActionUrl"
       />
-      <ProjectsList
+      <Projects-List
         v-if="section.__component === 'content.projects-list'"
         :key="section.id"
         :title="section.title"
         :projects="section.projects"
         :call-to-action-text="section.callToActionText"
+        :call-to-action-text2="section.callToActionText2"
         :call-to-action-url="section.callToActionUrl"
       />
       <MyGoals
@@ -22,6 +23,17 @@
         :key="section.id"
         :title="section.title"
         :text="section.text"
+      />
+      <Formatted-Text
+        v-if="section.__component === 'content.formatted-text'"
+        :key="section.id"
+        :title="section.title"
+        :text="section.text"
+      />
+      <Media
+        v-if="section.__component === 'content.media'"
+        :key="section.id"
+        :image="section.image"
       />
     </template>
   </main>

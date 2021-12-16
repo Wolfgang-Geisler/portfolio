@@ -3,7 +3,7 @@
     <div class="meineZiele-title text-light flex justify-center mb-4">
       <h2>{{ title }}</h2>
     </div>
-    <div class="meineZiele-content">{{ text }}</div>
+    <div v-if="text" class="meineZiele-content">{{ text }}</div>
   </div>
 </template>
 <script>
