@@ -3,9 +3,9 @@
     <div class="overflow-hidden">
       <img src="/wave.svg" class="wave h-full w-full object-cover" alt="wave" />
     </div>
-    <div class="bg-primary h-36"></div>
+    <div class="bg-primary md:h-36"></div>
     <div class="container">
-      <div class="hero-container absolute inset-0">
+      <div class="hero-container md:absolute inset-0">
         <div class="hero-image">
           <img
             v-if="image"
@@ -14,20 +14,11 @@
           />
         </div>
         <div class="intro-text flex flex-col items-center mx-auto px-4">
-          <h3>{{ intro }}</h3>
+          <h3 class="text-white mb-4">{{ intro }}</h3>
           <NuxtLink
             v-if="callToActionUrl && callToActionText"
-            class="
-              bg-light
-              hover:bg-white
-              text-primary
-              font-bold
-              py-2
-              px-4
-              mt-8
-              rounded
-            "
             :to="callToActionUrl"
+            class="button"
             >{{ callToActionText }}</NuxtLink
           >
         </div>
@@ -81,5 +72,29 @@ export default {
 }
 .hero-image {
   grid-area: hero-image;
+}
+
+@media (max-width: 767px) {
+  .hero-container {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem 0rem;
+    grid-template-areas:
+      'hero-image'
+      'intro-text';
+    justify-items: center;
+    background-color: #004586;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .intro-text {
+    grid-area: intro-text;
+  }
+  .hero-image {
+    grid-area: hero-image;
+  }
 }
 </style>

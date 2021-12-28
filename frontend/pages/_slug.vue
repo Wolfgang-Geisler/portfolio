@@ -1,5 +1,8 @@
 <template>
   <main>
+    <div class="container">
+      <h1 class="text-primary">{{ page.title }}</h1>
+    </div>
     <template v-for="section in page.content">
       <Hero
         v-if="section.__component === 'content.hero'"
@@ -35,11 +38,13 @@
         :key="section.id"
         :image="section.image"
       />
+    
     </template>
   </main>
 </template>
 
 <script>
+
 import { getStrapiMedia } from '../utils/medias'
 export default {
   async asyncData({ $axios, params }) {

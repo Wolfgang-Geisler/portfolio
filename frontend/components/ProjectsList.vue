@@ -12,35 +12,24 @@
             :class="{ 'md:flex-row-reverse': index % 2 === 0 }"
             class="flex flex-col md:flex-row text-white my-8"
           >
-            <div class="project-image my-4 px-4 w-1/2">
+            <div class="project-image my-4 md:px-4 md:w-1/2">
               <img
                 v-if="project.image"
                 :src="getStrapiMedia(project.image.formats.small.url)"
-                alt="project.image.name"
+                :alt="project.image.alternativeText"
               />
             </div>
-            <div class="w-1/2 flex flex-col space-y-4 px-4">
+            <div class="project-list md:w-1/2 md:flex md:flex-col md:space-y-4 md:px-4">
               <div>
                 <h3 class="project-title font-title my-4">
                   {{ project.title }}
                 </h3>
-                <p class="project-text">
+                <p class="project-text mb-4">
                   {{ project.description }}
                 </p>
               </div>
-              <div>
-                <NuxtLink
-                  :to="'/projects/' + project.slug"
-                  class="
-                    bg-light
-                    hover:bg-white
-                    text-primary
-                    font-bold
-                    py-2
-                    px-4
-                    rounded
-                  "
-                >
+              <div class="project-link">
+                <NuxtLink :to="'/projects/' + project.slug" class="button">
                   {{ project.callToActionText }}: {{ project.title }}
                 </NuxtLink>
               </div>
@@ -52,19 +41,9 @@
         v-if="callToActionUrl && callToActionText"
         class="flex justify-center"
       >
-        <NuxtLink
-          class="
-            bg-light
-            hover:bg-white
-            text-primary
-            font-bold
-            py-2
-            px-4
-            rounded
-          "
-          :to="callToActionUrl"
-          >{{ callToActionText }}</NuxtLink
-        >
+        <NuxtLink :to="callToActionUrl" class="button">{{
+          callToActionText
+        }}</NuxtLink>
       </div>
     </div>
   </div>
@@ -96,3 +75,5 @@ export default {
   },
 }
 </script>
+
+<style></style>

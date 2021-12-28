@@ -18,6 +18,12 @@
     },
     "callToActionText": {
       "type": "string"
+    },
+    "limit": {
+      "type": "integer",
+      "default": 2,
+      "min": 0,
+      "required": true
     }
   }
 }

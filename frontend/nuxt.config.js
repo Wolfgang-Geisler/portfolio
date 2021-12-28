@@ -43,7 +43,7 @@ export default {
     [
       'nuxt-fontawesome',
       {
-        component: 'fa', //customize component name
+        component: 'fa', //customized component name
         imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
@@ -53,17 +53,21 @@ export default {
             set: '@fortawesome/free-brands-svg-icons',
             icons: ['faLinkedin', 'faGithub', 'faCodepen'],
           },
-          // {set: '@fortawesome/free-regular-svg-icons',
-          // icons: ['faLightbulb']
-          // },
         ],
       },
     ],
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/markdownit'],
   axios: {
     baseURL: process.env.API_URL,
+  },
+  markdownit: {
+    runtime: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

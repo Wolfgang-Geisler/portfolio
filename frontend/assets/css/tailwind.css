@@ -12,7 +12,7 @@
     font-title;
   }
   h3 {
-    @apply text-lg
+    @apply text-lg;
   }
 }
 
@@ -32,5 +32,23 @@
     hover:text-primary
     hover:-translate-y-0 hover:scale-125
    transition ease-in-out duration-700;
+  }
+  .button {
+    @apply bg-light
+    hover:bg-white
+    text-primary
+    font-bold
+    py-2
+    px-4
+    rounded;
+  }
+  .project-image @media (max-width: 767px) {
+    @apply flex justify-center;
+  }
+  .project-link @media (max-width: 767px) {
+    @apply flex flex-row justify-center;
+  }
+  .project-list @media (max-width: 767px) {
+    @apply flex flex-row justify-center;
   }
 }

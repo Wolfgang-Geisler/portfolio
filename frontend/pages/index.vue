@@ -9,7 +9,7 @@
         :call-to-action-text="section.callToActionText"
         :call-to-action-url="section.callToActionUrl"
       />
-      <Projects-List
+      <ProjectsList
         v-if="section.__component === 'content.projects-list'"
         :key="section.id"
         :title="section.title"
@@ -24,16 +24,11 @@
         :title="section.title"
         :text="section.text"
       />
-      <Formatted-Text
+      <FormattedText
         v-if="section.__component === 'content.formatted-text'"
         :key="section.id"
         :title="section.title"
         :text="section.text"
-      />
-      <Media
-        v-if="section.__component === 'content.media'"
-        :key="section.id"
-        :image="section.image"
       />
     </template>
   </main>
@@ -46,12 +41,15 @@ import { getStrapiMedia } from '../utils/medias'
 import Hero from '../components/Hero.vue'
 import ProjectsList from '../components/ProjectsList.vue'
 import MyGoals from '../components/MyGoals.vue'
+import FormattedText from '../components/FormattedText.vue'
+
 
 export default {
   components: {
     Hero,
     ProjectsList,
     MyGoals,
+    FormattedText
   },
   async asyncData({ $axios }) {
     const home = await $axios.$get('/pages?slug=home')
