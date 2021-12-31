@@ -1,6 +1,6 @@
 <template>
   <div class="formatted-container my-8 px-4">
-    <div v-if="text" v-html="$md.render(text)">{{ text }}</div>
+    <p v-if="text" v-html="$md.render(text)">{{ text }}</p>
   </div>
 </template>
 <script>

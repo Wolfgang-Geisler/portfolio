@@ -30,6 +30,19 @@
         :title="section.title"
         :text="section.text"
       />
+      <TextPicture
+        v-if="section.__component === 'content.text-photo'"
+        :key="section.id"
+        :text="section.text"
+        :image="section.image"
+      />
+      <ContentBlob
+        v-if="section.__component === 'content.content-blob'"
+        :key="section.id"
+        :content1="section.content1"
+        :content2="section.content2"
+        :quote="section.quote"
+      />
     </template>
   </main>
 </template>
@@ -42,14 +55,17 @@ import Hero from '../components/Hero.vue'
 import ProjectsList from '../components/ProjectsList.vue'
 import MyGoals from '../components/MyGoals.vue'
 import FormattedText from '../components/FormattedText.vue'
-
+import TextPicture from '../components/TextPicture.vue'
+import ContentBlob from '../components/ContentBlob.vue'
 
 export default {
   components: {
     Hero,
     ProjectsList,
     MyGoals,
-    FormattedText
+    FormattedText,
+    TextPicture,
+    ContentBlob,
   },
   async asyncData({ $axios }) {
     const home = await $axios.$get('/pages?slug=home')

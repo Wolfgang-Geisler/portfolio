@@ -51,4 +51,7 @@
   .project-list @media (max-width: 767px) {
     @apply flex flex-row justify-center;
   }
+  p {
+    @apply leading-normal;
+  }
 }
