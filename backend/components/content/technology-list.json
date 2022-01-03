@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_content_technology_lists",
+  "info": {
+    "name": "technologyList",
+    "icon": "chalkboard"
+  },
+  "options": {},
+  "attributes": {
+    "technologies": {
+      "collection": "technology"
+    }
+  }
+}

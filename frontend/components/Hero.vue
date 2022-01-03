@@ -96,5 +96,8 @@ export default {
   .hero-image {
     grid-area: hero-image;
   }
+  .hero {
+    background: #004586;
+  }
 }
 </style>

@@ -30,9 +30,6 @@
       "required": false,
       "pluginOptions": {}
     },
-    "technologies": {
-      "collection": "technology"
-    },
     "content": {
       "type": "richtext"
     },
@@ -42,6 +39,11 @@
     },
     "callToActionText": {
       "type": "string"
+    },
+    "technology": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.technology-list"
     }
   }
 }

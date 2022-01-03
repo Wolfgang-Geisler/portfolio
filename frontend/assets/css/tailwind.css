@@ -34,7 +34,8 @@
    transition ease-in-out duration-700;
   }
   .button {
-    @apply bg-light
+    @apply inline-block
+    bg-light
     hover:bg-white
     text-primary
     font-bold
