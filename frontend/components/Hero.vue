@@ -14,7 +14,7 @@
           />
         </div>
         <div class="intro-text flex flex-col items-center mx-auto px-4">
-          <h3 class="text-white mb-4">{{ intro }}</h3>
+          <div class="text-white mb-4">{{ intro }}</div>
           <NuxtLink
             v-if="callToActionUrl && callToActionText"
             :to="callToActionUrl"

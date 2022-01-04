@@ -43,6 +43,14 @@
         :content2="section.content2"
         :quote="section.quote"
       />
+      <Technology
+        v-if="section.__component === 'content.technology-list'"
+        :key="section.id"
+        :technologies="section.technologies"
+        :name="section.name"
+        :type="section.type"
+        :icon="section.icon"
+      />
     </template>
   </main>
 </template>
@@ -57,6 +65,7 @@ import MyGoals from '../components/MyGoals.vue'
 import FormattedText from '../components/FormattedText.vue'
 import TextPicture from '../components/TextPicture.vue'
 import ContentBlob from '../components/ContentBlob.vue'
+import Technology from '../components/Technology.vue'
 
 export default {
   components: {
@@ -66,6 +75,7 @@ export default {
     FormattedText,
     TextPicture,
     ContentBlob,
+    Technology,
   },
   async asyncData({ $axios }) {
     const home = await $axios.$get('/pages?slug=home')

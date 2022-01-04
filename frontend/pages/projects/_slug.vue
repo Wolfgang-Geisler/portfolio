@@ -1,10 +1,10 @@
 <template>
   <main>
     <div class="py-16 px-4 bg-primary my-8">
-        <h1 class="text-light mb-4">{{ project.title }}</h1>
-        <p class="text-white" v-html="$md.render(project.content)">
+        <div class="text-light mb-4">{{ project.title }}</div>
+        <div class="text-white" v-html="$md.render(project.content)">
           {{ project.content }}
-        </p>
+        </div>
       </div>
   </main>
 </template>

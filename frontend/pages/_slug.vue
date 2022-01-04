@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <h1 class="text-primary">{{ page.title }}</h1>
+      <div class="text-primary">{{ page.title }}</div>
     </div>
     <template v-for="section in page.content">
       <Hero
@@ -12,7 +12,7 @@
         :call-to-action-text="section.callToActionText"
         :call-to-action-url="section.callToActionUrl"
       />
-      <Projects-List
+      <ProjectsList
         v-if="section.__component === 'content.projects-list'"
         :key="section.id"
         :title="section.title"
@@ -27,7 +27,7 @@
         :title="section.title"
         :text="section.text"
       />
-      <Formatted-Text
+      <FormattedText
         v-if="section.__component === 'content.formatted-text'"
         :key="section.id"
         :title="section.title"
@@ -46,6 +46,14 @@
         :content2="section.content2"
         :quote="section.quote"
       />
+      <Technology
+        v-if="section.__component === 'content.technology-list'"
+        :key="section.id"
+        :technologies="section.technologies"
+        :name="section.name"
+        :type="section.type"
+        :icon="section.icon"
+      />
     </template>
   </main>
 </template>
@@ -58,6 +66,8 @@ import MyGoals from '../components/MyGoals.vue'
 import FormattedText from '../components/FormattedText.vue'
 import TextPicture from '../components/TextPicture.vue'
 import ContentBlob from '../components/ContentBlob.vue'
+import Technology from '../components/Technology.vue'
+
 export default {
   components: {
     Hero,
@@ -66,6 +76,7 @@ export default {
     FormattedText,
     TextPicture,
     ContentBlob,
+    Technology,
   },
   async asyncData({ $axios, params }) {
     const slug = params.slug

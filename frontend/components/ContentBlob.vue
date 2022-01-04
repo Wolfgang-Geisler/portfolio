@@ -4,14 +4,14 @@
     <div class="contentBlob-container bg-primary px-4">
       <div class="content">
         <div class="content1">
-          <p v-if="content1" class="text-white" v-html="$md.render(content1)">
+          <div v-if="content1" class="text-white" v-html="$md.render(content1)">
             {{ content1 }}
-          </p>
+          </div>
         </div>
         <div class="content2">
-          <p v-if="content2" class="text-white" v-html="$md.render(content2)">
+          <div v-if="content2" class="text-white" v-html="$md.render(content2)">
             {{ content2 }}
-          </p>
+          </div>
         </div>
       </div>
       <div class="container relative h-80 w-80">
@@ -19,9 +19,9 @@
           <img src="/blob.svg" alt="blob" />
         </div>
         <div class="quote absolute inset-0 pt-16 pl-8">
-          <h2 v-if="quote" class="text-primary" v-html="$md.render(quote)">
+          <div v-if="quote" class="text-primary" v-html="$md.render(quote)">
             {{ quote }}
-          </h2>
+          </div>
         </div>
       </div>
     </div>

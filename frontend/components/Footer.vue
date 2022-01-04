@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="container-footer-icons flex justify-center my-4">
-      <h3>Mehr über mich</h3>
+      <div>Mehr über mich</div>
     </div>
     <div class="footer-icons flex justify-center space-x-4">
       <template v-for="socialMedia in socialMediaIcons"
@@ -38,7 +38,7 @@
         </ul>
       </div>
       <div class="logo-footer flex sm:justify-end">
-        <p class="text-xs mt-1.5">&copy; Wolfgang Geisler 2021</p>
+        <div class="text-xs mt-1.5">&copy; Wolfgang Geisler 2021</div>
       </div>
     </div>
   </footer>

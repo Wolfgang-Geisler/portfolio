@@ -2,7 +2,7 @@
   <div class="bg-primary py-16">
     <div class="project-container my-8 px-4">
       <div class="title text-light flex justify-center">
-        <h2>{{ title }}</h2>
+        <div>{{ title }}</div>
       </div>
       <div class="container m-auto">
         <ul class="project-list flex flex-col mb-8">
@@ -21,12 +21,12 @@
             </div>
             <div class="project-list md:w-1/2 md:flex md:flex-col md:space-y-4 md:px-4">
               <div>
-                <h3 class="project-title font-title my-4">
+                <div class="project-title font-title my-4">
                   {{ project.title }}
-                </h3>
-                <p class="project-text mb-4">
+                </div>
+                <div class="project-text mb-4">
                   {{ project.description }}
-                </p>
+                </div>
               </div>
               <div class="project-link">
                 <NuxtLink :to="'/projects/' + project.slug" class="button">

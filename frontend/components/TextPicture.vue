@@ -1,6 +1,6 @@
 <template>
   <div class="textImage-container md:my-8 px-4">
-    <p v-if="text" class="text-content" v-html="$md.render(text)">{{ text }}</p>
+    <div v-if="text" class="text-content" v-html="$md.render(text)">{{ text }}</div>
     <div class="image">
       <img
         v-if="image"
