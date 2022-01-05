@@ -1,7 +1,11 @@
 <template>
-  <div class="hero relative">
+  <div class="hero1 relative">
     <div class="overflow-hidden">
-      <img src="/wave.svg" class="wave h-full w-full object-cover" alt="wave" />
+      <img
+        src="/wave.svg"
+        class="wave-hero h-full w-full object-cover"
+        alt="wave"
+      />
     </div>
     <div class="bg-primary md:h-36"></div>
     <div class="container">
@@ -13,8 +17,18 @@
             alt="image.name"
           />
         </div>
-        <div class="intro-text flex flex-col items-center mx-auto px-4">
-          <div class="text-white mb-4">{{ intro }}</div>
+        <div
+          class="
+            intro-text
+            flex flex-col
+            sm:items-center
+            items-center
+            md:items-start
+            mx-auto
+            px-4
+          "
+        >
+          <h3 class="mb-4 md:text-white">{{ intro }}</h3>
           <NuxtLink
             v-if="callToActionUrl && callToActionText"
             :to="callToActionUrl"
@@ -74,7 +88,7 @@ export default {
   grid-area: hero-image;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hero-container {
     display: grid;
     grid-auto-columns: 1fr;
@@ -86,18 +100,20 @@ export default {
       'hero-image'
       'intro-text';
     justify-items: center;
-    background-color: #004586;
     padding-left: 1rem;
     padding-right: 1rem;
   }
   .intro-text {
     grid-area: intro-text;
+    @apply mb-16;
   }
   .hero-image {
     grid-area: hero-image;
+    @apply mx-auto
+    w-1/2;
   }
-  .hero {
-    background: #004586;
+  .wave-hero {
+    @apply hidden;
   }
 }
 </style>

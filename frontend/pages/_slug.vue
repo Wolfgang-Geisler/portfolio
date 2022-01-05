@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <div class="text-primary">{{ page.title }}</div>
+      <h2 class="text-primary">{{ page.title }}</h2>
     </div>
     <template v-for="section in page.content">
       <Hero

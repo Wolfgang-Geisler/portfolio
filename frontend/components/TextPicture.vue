@@ -49,7 +49,7 @@ export default {
   grid-area: image;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .textImage-container {
     display: grid;
     grid-auto-columns: 1fr;
@@ -61,13 +61,11 @@ export default {
       'image'
       'text-content';
     justify-items: center;
-    background-color: #004586;
     padding-left: 1rem;
     padding-right: 1rem;
   }
   .text-content {
     grid-area: text-content;
-    color: white;
   }
   .image {
     grid-area: image;

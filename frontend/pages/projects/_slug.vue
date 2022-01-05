@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="py-16 px-4 bg-primary my-8">
-        <div class="text-light mb-4">{{ project.title }}</div>
+        <h1 class="text-light mb-4">{{ project.title }}</h1>
         <div class="text-white" v-html="$md.render(project.content)">
           {{ project.content }}
         </div>

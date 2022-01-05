@@ -1,32 +1,26 @@
 <template>
   <div class="relative">
-    <img class="wave" src="/wave2.svg" alt="wave2" />
+    <img class="wave w-full" src="/wave2.svg" alt="wave2" />
     <div class="contentBlob-container bg-primary px-4">
-      <div class="content">
-        <div class="content1">
-          <div v-if="content1" class="text-white" v-html="$md.render(content1)">
-            {{ content1 }}
-          </div>
+        <div v-if="content1" class="content1 text-white" v-html="$md.render(content1)">
+          {{ content1 }}
         </div>
-        <div class="content2">
-          <div v-if="content2" class="text-white" v-html="$md.render(content2)">
-            {{ content2 }}
-          </div>
+        <div v-if="content2" class="content2 text-white" v-html="$md.render(content2)">
+          {{ content2 }}
         </div>
-      </div>
-      <div class="container relative h-80 w-80">
-        <div class="image-blob">
+      <div class="container relative h-80 w-80 image-blob">
+        <div>
           <img src="/blob.svg" alt="blob" />
         </div>
-        <div class="quote absolute inset-0 pt-16 pl-8">
-          <div v-if="quote" class="text-primary" v-html="$md.render(quote)">
+        <div class="quote absolute inset-0 pt-16 pl-10">
+          <h2 v-if="quote" class="text-primary">
             {{ quote }}
-          </div>
+          </h2>
         </div>
       </div>
     </div>
     <div class="relative">
-      <img class="wave" src="/wave3.svg" alt="wave3" />
+      <img class="wave w-full" src="/wave3.svg" alt="wave3" />
     </div>
   </div>
 </template>
@@ -65,8 +59,8 @@ p {
   grid-template-rows: auto auto;
   gap: 0rem 2rem;
   grid-template-areas:
-    '. image-blob'
-    'content image-blob';
+    'content1 image-blob'
+    'content2 image-blob';
   justify-items: center;
   align-items: center;
 }
@@ -76,7 +70,7 @@ p {
 .image-blob {
   grid-area: image-blob;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .contentBlob-container {
     display: grid;
     grid-auto-columns: 1fr;
@@ -101,11 +95,6 @@ p {
   }
   .content2 {
     grid-area: content2;
-  }
-}
-@media (max-width: 767px) {
-  .wave {
-    display: none;
   }
 }
 </style>

@@ -1,15 +1,13 @@
 <template>
   <div class="technology-container my-16 px-4">
-      <div>Damit habe ich bereits gearbeitet</div>
-    <ul>
-      <li v-for="technology in technologies" :key="technology.id">
-        <div class="icon-image">
-          <img
-            v-if="technology.icon"
-            :src="getStrapiMedia(technology.icon.url)"
-            :alt="technology.icon.alternativeText"
-          />
-        </div>
+    <h2 class="text-primary mb-4">Damit habe ich bereits gearbeitet</h2>
+    <ul class="flex flex-row">
+      <li v-for="technology in technologies" :key="technology.id" class="mx-auto w-screen">
+        <img
+          v-if="technology.icon"
+          :src="getStrapiMedia(technology.icon.url)"
+          :alt="technology.icon.alternativeText"
+        />
       </li>
     </ul>
   </div>

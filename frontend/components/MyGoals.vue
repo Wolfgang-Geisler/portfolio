@@ -1,7 +1,7 @@
 <template>
   <div class="meineZiele-container my-8 px-4">
     <div class="meineZiele-title text-light flex justify-center mb-4">
-      <div>{{ title }}</div>
+      <h2>{{ title }}</h2>
     </div>
     <div v-if="text" class="meineZiele-content" v-html="$md.render(text)">{{ text }}</div>
   </div>

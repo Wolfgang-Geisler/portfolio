@@ -2,7 +2,7 @@
   <div class="bg-primary py-16">
     <div class="project-container my-8 px-4">
       <div class="title text-light flex justify-center">
-        <div>{{ title }}</div>
+        <h2>{{ title }}</h2>
       </div>
       <div class="container m-auto">
         <ul class="project-list flex flex-col mb-8">
@@ -19,14 +19,19 @@
                 :alt="project.image.alternativeText"
               />
             </div>
-            <div class="project-list md:w-1/2 md:flex md:flex-col md:space-y-4 md:px-4">
+            <div
+              class="
+                project-list
+                md:w-1/2 md:flex md:flex-col md:space-y-4 md:px-4
+              "
+            >
               <div>
-                <div class="project-title font-title my-4">
+                <h3 class="project-title font-title my-4">
                   {{ project.title }}
-                </div>
-                <div class="project-text mb-4">
+                </h3>
+                <p class="project-text mb-4">
                   {{ project.description }}
-                </div>
+                </p>
               </div>
               <div class="project-link">
                 <NuxtLink :to="'/projects/' + project.slug" class="button">
@@ -76,4 +81,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+@media (max-width: 768px) {
+  .project-image {
+    @apply block
+    mx-auto
+    w-1/2;
+  }
+}
+</style>
