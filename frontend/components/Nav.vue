@@ -27,7 +27,7 @@
       </div>
       <div class="hamburger-menu flex md:hidden flex-col justify-start mt-2.5">
         <button
-          class="absolute top-5 right-11 text-6xl text-black hover:bg-white focus:bg-white"
+          class="closeBtn"
           @click="toggleNavigation"
         >
           <span class="sr-only">Open main menu</span>
@@ -167,6 +167,10 @@ export default {
   }
   .link-list {
     @apply relative top-1/4 w-full text-center mt-8;
+  }
+  .closeBtn .hamburger-menu {
+    @apply
+    absolute top-5 right-11 text-6xl hover:bg-white focus:bg-white
   }
 }
 </style>
