@@ -12,7 +12,7 @@
             :class="{ 'md:flex-row-reverse': index % 2 === 0 }"
             class="flex flex-col md:flex-row text-white my-8"
           >
-            <div class="project-image my-4 md:px-4 md:w-1/2">
+            <div class="project-image my-4 md:px-4 w-1/2 mx-auto block">
               <img
                 v-if="project.image"
                 :src="getStrapiMedia(project.image.formats.small.url)"
@@ -80,13 +80,3 @@ export default {
   },
 }
 </script>
-
-<style>
-@media (max-width: 768px) {
-  .project-image {
-    @apply block
-    mx-auto
-    w-1/2;
-  }
-}
-</style>

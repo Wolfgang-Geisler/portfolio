@@ -53,6 +53,7 @@
     @apply flex flex-row justify-center;
   }
   p {
-    @apply leading-normal;
+    @apply leading-normal
+    mb-4;
+    }
   }
-}

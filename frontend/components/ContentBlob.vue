@@ -2,12 +2,20 @@
   <div class="relative">
     <img class="wave w-full" src="/wave2.svg" alt="wave2" />
     <div class="contentBlob-container bg-primary px-4">
-        <div v-if="content1" class="content1 text-white" v-html="$md.render(content1)">
-          {{ content1 }}
-        </div>
-        <div v-if="content2" class="content2 text-white" v-html="$md.render(content2)">
-          {{ content2 }}
-        </div>
+      <div
+        v-if="content1"
+        class="content1 text-white"
+        v-html="$md.render(content1)"
+      >
+        {{ content1 }}
+      </div>
+      <div
+        v-if="content2"
+        class="content2 text-white"
+        v-html="$md.render(content2)"
+      >
+        {{ content2 }}
+      </div>
       <div class="container relative h-80 w-80 image-blob">
         <div>
           <img src="/blob.svg" alt="blob" />
@@ -47,54 +55,51 @@ export default {
 }
 </script>
 <style>
-p {
-  margin-bottom: 1rem;
-}
-
-.contentBlob-container {
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 0rem 2rem;
-  grid-template-areas:
-    'content1 image-blob'
-    'content2 image-blob';
-  justify-items: center;
-  align-items: center;
-}
-.text-blob {
-  grid-area: text-blob;
+.content1 {
+  grid-area: content1;
 }
 .image-blob {
   grid-area: image-blob;
 }
-@media (max-width: 768px) {
+.content2 {
+  grid-area: content2;
+}
+.text-blob {
+  grid-area: text-blob;
+}
+.contentBlob-container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0rem 0rem;
+  grid-template-areas:
+    'content1'
+    'image-blob'
+    'content2';
+  justify-items: center;
+  background-color: #004586;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 767px) {
   .contentBlob-container {
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 0rem 0rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0rem 2rem;
     grid-template-areas:
-      'content1'
-      'image-blob'
-      'content2';
+      'content1 image-blob'
+      'content2 image-blob';
     justify-items: center;
-    background-color: #004586;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .content1 {
-    grid-area: content1;
-  }
-  .image-blob {
-    grid-area: image-blob;
-  }
-  .content2 {
-    grid-area: content2;
+    align-items: center;
   }
 }
+/* p {
+  @apply mb-2;
+} */
 </style>
