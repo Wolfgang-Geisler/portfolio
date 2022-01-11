@@ -99,7 +99,4 @@ export default {
     align-items: center;
   }
 }
-/* p {
-  @apply mb-2;
-} */
 </style>

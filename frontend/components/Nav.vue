@@ -9,16 +9,15 @@
       <div class="main-nav mt-2.5 md:block" :class="{ hidden: !open }">
         <ul
           v-if="mainNavigation"
-          class="flex flex-col items-center link-list md:flex-row"
+          class="flex flex-col items-center md:flex-row"
         >
           <li
             v-for="navigationLink in mainNavigation.navigationItem"
             :key="navigationLink.id"
-            class="link-item"
           >
             <NuxtLink
               :to="'/' + navigationLink.page.slug"
-              class="nav-link block"
+              class="nav-link"
             >
               {{ navigationLink.page.title }}</NuxtLink
             >
@@ -27,7 +26,7 @@
       </div>
       <div class="hamburger-menu flex md:hidden flex-col justify-start mt-2.5">
         <button
-          class="closeBtn"
+          class="text-black w-10 h-10 p-6 relative focus:outline-none bg-white"
           @click="toggleNavigation"
         >
           <span class="sr-only">Open main menu</span>
@@ -154,23 +153,9 @@ export default {
   }
   .hamburger-menu {
     grid-area: hamburger-menu;
-    @apply h-full w-0 fixed z-10 top-0 left-0 bg-black overflow-x-hidden transition duration-500;
   }
   .main-nav {
     grid-area: main-nav;
-  }
-  .nav-link {
-    @apply p-2 no-underline text-4xl text-white transition duration-300;
-  }
-  .link-item {
-    @apply relative top-1/4 w-full text-center mt-8;
-  }
-  .link-list {
-    @apply relative top-1/4 w-full text-center mt-8;
-  }
-  .closeBtn .hamburger-menu {
-    @apply
-    absolute top-5 right-11 text-6xl hover:bg-white focus:bg-white
   }
 }
 </style>

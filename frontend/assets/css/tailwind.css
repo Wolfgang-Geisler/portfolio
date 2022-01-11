@@ -25,7 +25,8 @@
     mb-2
     rounded-md
     text-sm
-    font-medium;
+    font-medium
+    block;
   }
   .fa {
     @apply transform scale-110
