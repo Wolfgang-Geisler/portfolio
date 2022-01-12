@@ -15,10 +15,7 @@
             v-for="navigationLink in mainNavigation.navigationItem"
             :key="navigationLink.id"
           >
-            <NuxtLink
-              :to="'/' + navigationLink.page.slug"
-              class="nav-link"
-            >
+            <NuxtLink :to="'/' + navigationLink.page.slug" class="nav-link">
               {{ navigationLink.page.title }}</NuxtLink
             >
           </li>
@@ -135,27 +132,5 @@ export default {
 
 .hamburger-menu {
   grid-area: hamburger-menu;
-}
-
-/*mobile navigation*/
-@media (max-width: 640px) {
-  .container-nav {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto auto;
-    grid-auto-columns: 1fr;
-    gap: 0em 0em;
-    grid-auto-flow: column;
-    grid-template-areas: 'logo main-nav hamburger-menu';
-  }
-  .logo {
-    grid-area: logo;
-  }
-  .hamburger-menu {
-    grid-area: hamburger-menu;
-  }
-  .main-nav {
-    grid-area: main-nav;
-  }
 }
 </style>
