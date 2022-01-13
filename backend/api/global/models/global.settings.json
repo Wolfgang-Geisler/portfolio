@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
-      "type": "email"
-    },
     "globalSeo": {
       "type": "component",
       "repeatable": false,
