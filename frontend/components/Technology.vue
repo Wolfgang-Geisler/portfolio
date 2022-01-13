@@ -1,8 +1,12 @@
 <template>
   <div class="technology-container my-16 px-4">
     <h2 class="text-primary mb-4">Damit habe ich bereits gearbeitet</h2>
-    <ul class=" flex flex-wrap flex-row">
-      <li v-for="technology in technologies" :key="technology.id" class="w-8 mb-4 mx-8">
+    <ul class="flex flex-wrap flex-row">
+      <li
+        v-for="technology in technologies"
+        :key="technology.id"
+        class="w-8 mb-4 mx-8"
+      >
         <img
           v-if="technology.icon"
           :src="getStrapiMedia(technology.icon.url)"
