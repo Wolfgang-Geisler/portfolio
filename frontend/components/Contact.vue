@@ -50,7 +50,9 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 export default {
   name: 'Contact',
@@ -67,28 +69,21 @@ export default {
   },
   methods: {
     onSubmit() {
-      const data = {
-        name: this.name,
-        email: this.email,
-        message: this.message,
-        reference: this.reference,
+      const msg = {
+        to: 'wolfganggeisler@yahoo.de',
+        from: 'test@example.com',
+        subject: 'test',
+        text: 'this is a test',
+        html: '<strong>test message</strong>'
       }
-      axios
-        .post(
-          'https://getform.io/f/{unique-endpoint-generated-on-step-1}',
-          data,
-          {
-            headers: {
-              Accept: 'application/json',
-            },
-          }
-        )
-        .then((response) => {
-          this.isSuccess = response.data.success
-        })
-        .catch((error) => {
-          this.error = error.message
-        })
+      sgMail.send(msg)
+            .then((response)=> {
+              console.log(response[0].statusCode)
+              console.log(response[0].headers)
+            })
+            .catch((error) => {
+              console.error(error)
+            })
     },
   },
 }

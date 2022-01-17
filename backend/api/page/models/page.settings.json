@@ -29,7 +29,8 @@
         "content.media",
         "content.text-photo",
         "content.content-blob",
-        "content.technology-list"
+        "content.technology-list",
+        "content.contact"
       ]
     },
     "seo": {
