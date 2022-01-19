@@ -51,6 +51,12 @@
         :type="section.type"
         :icon="section.icon"
       />
+      <Contact
+        v-if="section.__component === 'content.contact'"
+        :key="section.id"
+        :request="section.request"
+        :mail="section.mail"
+      />
     </template>
   </main>
 </template>
@@ -64,6 +70,7 @@ import FormattedText from '../components/FormattedText.vue'
 import TextPicture from '../components/TextPicture.vue'
 import ContentBlob from '../components/ContentBlob.vue'
 import Technology from '../components/Technology.vue'
+import Contact from '../components/Contact.vue'
 
 export default {
   props: {
@@ -80,6 +87,7 @@ export default {
     TextPicture,
     ContentBlob,
     Technology,
+    Contact,
   },
   methods: {
     getStrapiMedia,

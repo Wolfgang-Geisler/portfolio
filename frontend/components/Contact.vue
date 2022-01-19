@@ -1,42 +1,71 @@
 <template>
-  <div>
-    <div>
-      <form @submit.prevent="onSubmit()">
-        <div>
-          <label>Email Adresse</label>
+  <div class="flex items-center h-screen w-full my-16 bg-primary">
+    <div
+      class="
+        w-full
+        border-2 border-primary
+        bg-white
+        rounded
+        shadow-lg
+        p-8
+        m-4
+        md:max-w-sm md:mx-auto
+      "
+    >
+      <h1 class="block w-full text-center text-primary mb-6">
+        {{ request }}
+      </h1>
+      <form
+        class="mb-4 md:flex md:flex-wrap md:justify-between"
+        @submit.prevent="onSubmit()"
+      >
+        <div class="flex flex-col mb-4 md:w-full">
+          <label class="mb-2 uppercase font-bold text-lg text-primary"
+            >E-Mail</label
+          >
           <input
             v-model="email"
             type="email"
-            class="form-control"
-            placeholder="Email"
+            class="border-2 border-primary py-2 px-3 text-black md:mr-2"
+            name="email"
+            placeholder="E-Mail"
           />
         </div>
-        <div>
-          <label>Name</label>
+        <div class="flex flex-col mb-4 md:w-full">
+          <label class="mb-2 uppercase font-bold text-lg text-primary"
+            >Name</label
+          >
           <input
             v-model="name"
             type="text"
-            class="form-control"
+            class="border-2 border-primary py-2 px-3 text-black md:mr-2"
+            name="name"
             placeholder="Name"
             required="required"
           />
         </div>
-        <div>
-          <label>Betreff</label>
+        <div class="flex flex-col mb-4 md:w-full">
+          <label class="mb-2 uppercase font-bold text-lg text-primary"
+            >Betreff</label
+          >
           <input
             v-model="reference"
             type="text"
-            class="form-control"
+            class="border-2 border-primary py-2 px-3 text-black md:mr-2"
+            name="betreff"
             placeholder="Betreff"
             required="required"
           />
         </div>
-        <div>
-          <label>Nachricht</label>
+        <div class="flex flex-col mb-4 md:w-full">
+          <label class="mb-2 uppercase font-bold text-lg text-primary"
+            >Nachricht</label
+          >
           <textarea
             v-model="message"
             type="text"
-            class="form-control"
+            class="border-2 border-primary py-2 px-3 text-black md:mr-2"
+            name="nachricht"
             placeholder="Nachricht"
             required="required"
           ></textarea>
@@ -44,18 +73,27 @@
         <hr />
         <div v-if="isSuccess" class="success">Danke, für Ihre Nachricht!</div>
         <div v-if="error" class="error">Leider, ist ein Fehler passiert!</div>
-        <button type="submit">Senden</button>
+        <button class="button uppercase text-lg mx-auto" type="submit">
+          Senden
+        </button>
       </form>
     </div>
   </div>
 </template>
 <script>
-
-const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
+import axios from 'axios'
+import { getStrapiMedia } from '../utils/medias'
 export default {
-  name: 'Contact',
+  props: {
+    request: {
+      type: String,
+      default: null,
+    },
+    mail: {
+      type: String,
+      default: null,
+    },
+  },
   data() {
     return {
       loading: true,
@@ -68,22 +106,25 @@ export default {
     }
   },
   methods: {
+    getStrapiMedia,
     onSubmit() {
-      const msg = {
-        to: 'wolfganggeisler@yahoo.de',
-        from: 'test@example.com',
-        subject: 'test',
-        text: 'this is a test',
-        html: '<strong>test message</strong>'
+      const data = {
+        name: this.name,
+        email: this.email,
+        message: this.message,
+        reference: this.reference,
       }
-      sgMail.send(msg)
-            .then((response)=> {
-              console.log(response[0].statusCode)
-              console.log(response[0].headers)
-            })
-            .catch((error) => {
-              console.error(error)
-            })
+      axios
+        .post(
+          'https://getform.io/f/{unique-endpoint-generated-on-step-1}',
+          data
+        )
+        .then((response) => {
+          this.isSuccess = response.data.success
+        })
+        .catch((error) => {
+          this.error = error.message
+        })
     },
   },
 }
