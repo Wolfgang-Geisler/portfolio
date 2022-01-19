@@ -108,6 +108,7 @@ export default {
   methods: {
     getStrapiMedia,
     onSubmit() {
+      console.log('Hallo!!!')
       const data = {
         name: this.name,
         email: this.email,
@@ -117,13 +118,16 @@ export default {
       axios
         .post(
           'https://getform.io/f/{unique-endpoint-generated-on-step-1}',
-          data
+          data,
+          console.log('Grüß dich!!!')
         )
         .then((response) => {
           this.isSuccess = response.data.success
+          console.log('Servus!!!')
         })
         .catch((error) => {
           this.error = error.message
+          console.log('Wer bist du?')
         })
     },
   },
