@@ -13,7 +13,9 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/markdownit": "^2.0.0",
-    "@sendgrid/mail": "^7.6.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@nuxt/markdown": "0.0.21",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7"
   },
@@ -27,6 +29,10 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
     "postcss": "^8.3.5",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "nuxt-fontawesome": "^0.4.0"
   }
 }

@@ -12,10 +12,14 @@
         md:max-w-sm md:mx-auto
       "
     >
-      <h1 class="block w-full text-center text-primary mb-6">
+      <h1 v-if="!isSuccess" class="block w-full text-center text-primary mb-6">
         {{ request }}
       </h1>
+      <div v-if="isSuccess" class="success text-primary">
+        <h1>Danke, für Ihre Nachricht!</h1>
+      </div>
       <form
+        v-if="!isSuccess"
         class="mb-4 md:flex md:flex-wrap md:justify-between"
         @submit.prevent="onSubmit()"
       >
@@ -71,15 +75,33 @@
           ></textarea>
         </div>
         <div class="container flex justify-center my-2">
-          <div v-if="isSuccess" class="success text-primary">
-            <h3>Danke, für Ihre Nachricht!</h3>
-          </div>
           <div v-if="error" class="error text-primary">
-            <h3>Leider, ist ein Fehler passiert!</h3>
+            <h3>{{ error }}</h3>
           </div>
         </div>
         <div class="container flex justify-center">
-          <button class="button uppercase text-lg" type="submit">Senden</button>
+          <button
+            v-if="!loading"
+            class="button uppercase text-lg"
+            type="submit"
+          >
+            Senden
+          </button>
+          <div
+            v-if="loading"
+            class="
+              animate-spin
+              inline-block
+              w-8
+              h-8
+              border-4 border-primary
+              spinner-border
+              rounded-full
+            "
+            role="status"
+          >
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       </form>
     </div>
@@ -102,7 +124,7 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       name: '',
       email: '',
       message: '',
@@ -114,6 +136,7 @@ export default {
   methods: {
     getStrapiMedia,
     onSubmit() {
+      this.loading = true
       const data = {
         name: this.name,
         email: this.email,
@@ -123,18 +146,22 @@ export default {
       axios
         .post('https://getform.io/f/4b3459d2-f851-41c7-b4a4-c9edcb77d62d', data)
         .then((response) => {
-          this.isSuccess = response.data.success
+          console.log(response)
           this.isSuccess = true
-          this.name = ''
-          this.email = ''
-          this.message = ''
-          this.reference = ''
+          this.loading = false
         })
         .catch((error) => {
           this.error = error.message
+          this.loading = false
           this.error = true
         })
     },
   },
 }
 </script>
+<style>
+.spinner-border {
+  border-top-color: #a3ccf3;
+  border-right-color: #a3ccf3;
+}
+</style>
