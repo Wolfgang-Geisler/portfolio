@@ -9,9 +9,6 @@
   "attributes": {
     "request": {
       "type": "richtext"
-    },
-    "mail": {
-      "type": "email"
     }
   }
 }

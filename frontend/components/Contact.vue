@@ -70,12 +70,17 @@
             required="required"
           ></textarea>
         </div>
-        <hr />
-        <div v-if="isSuccess" class="success">Danke, für Ihre Nachricht!</div>
-        <div v-if="error" class="error">Leider, ist ein Fehler passiert!</div>
-        <button class="button uppercase text-lg mx-auto" type="submit">
-          Senden
-        </button>
+        <div class="container flex justify-center my-2">
+          <div v-if="isSuccess" class="success text-primary">
+            <h3>Danke, für Ihre Nachricht!</h3>
+          </div>
+          <div v-if="error" class="error text-primary">
+            <h3>Leider, ist ein Fehler passiert!</h3>
+          </div>
+        </div>
+        <div class="container flex justify-center">
+          <button class="button uppercase text-lg" type="submit">Senden</button>
+        </div>
       </form>
     </div>
   </div>
@@ -84,6 +89,7 @@
 import axios from 'axios'
 import { getStrapiMedia } from '../utils/medias'
 export default {
+  name: 'Contact',
   props: {
     request: {
       type: String,
@@ -108,7 +114,6 @@ export default {
   methods: {
     getStrapiMedia,
     onSubmit() {
-      console.log('Hallo!!!')
       const data = {
         name: this.name,
         email: this.email,
@@ -116,18 +121,18 @@ export default {
         reference: this.reference,
       }
       axios
-        .post(
-          'https://getform.io/f/{unique-endpoint-generated-on-step-1}',
-          data,
-          console.log('Grüß dich!!!')
-        )
+        .post('https://getform.io/f/4b3459d2-f851-41c7-b4a4-c9edcb77d62d', data)
         .then((response) => {
           this.isSuccess = response.data.success
-          console.log('Servus!!!')
+          this.isSuccess = true
+          this.name = ''
+          this.email = ''
+          this.message = ''
+          this.reference = ''
         })
         .catch((error) => {
           this.error = error.message
-          console.log('Wer bist du?')
+          this.error = true
         })
     },
   },
