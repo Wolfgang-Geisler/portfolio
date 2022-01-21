@@ -24,7 +24,7 @@
         :title="section.title"
         :text="section.text"
       />
-      <FormattedText
+      <RichText
         v-if="section.__component === 'content.formatted-text'"
         :key="section.id"
         :title="section.title"
@@ -66,7 +66,7 @@ import { getStrapiMedia } from '../utils/medias'
 import Hero from '../components/Hero.vue'
 import ProjectsList from '../components/ProjectsList.vue'
 import MyGoals from '../components/MyGoals.vue'
-import FormattedText from '../components/FormattedText.vue'
+import RichText from '../components/RichText.vue'
 import TextPicture from '../components/TextPicture.vue'
 import ContentBlob from '../components/ContentBlob.vue'
 import Technology from '../components/Technology.vue'
@@ -83,7 +83,7 @@ export default {
     Hero,
     ProjectsList,
     MyGoals,
-    FormattedText,
+    RichText,
     TextPicture,
     ContentBlob,
     Technology,
