@@ -59,7 +59,7 @@ export default {
     return { page }
   },
   head() {
-    const { seo } = this.home
+    const { seo } = this.page
     const { defaultSeo } = this.global
 
     const fullSeo = {
