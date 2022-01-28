@@ -38,7 +38,7 @@
         </ul>
       </div>
       <div class="logo-footer flex sm:justify-end">
-        <p class="text-xs mt-1.5">&copy; Wolfgang Geisler 2021</p>
+        <p class="text-xs mt-1.5">&copy; Wolfgang Geisler 2022</p>
       </div>
     </div>
   </footer>

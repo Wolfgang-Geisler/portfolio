@@ -96,7 +96,7 @@ export default {
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     gap: 0em 0em;
     grid-template-areas:
       '. hero-image'

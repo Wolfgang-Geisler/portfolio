@@ -21,6 +21,7 @@ export default {
     return { home: home[0] }
   },
   head() {
+    console.log(this.home.seo)
     const { seo } = this.home
     const { defaultSeo } = this.global
 
