@@ -36,8 +36,8 @@ export function getMetaTags(seo) {
       }
     )
   }
-  if (seo.shareImage) {
-    const imageUrl = getStrapiMedia(seo.shareImage.url)
+  if (seo.sharedImage) {
+    const imageUrl = getStrapiMedia(seo.sharedImage.url)
     tags.push(
       {
         name: 'image',

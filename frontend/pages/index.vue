@@ -1,9 +1,6 @@
 <template>
   <main>
-      <ContentRender
-      v-if="home.content"
-      :content="home.content"
-       />
+    <ContentRender v-if="home.content" :content="home.content" />
   </main>
 </template>
 
@@ -21,7 +18,6 @@ export default {
     return { home: home[0] }
   },
   head() {
-    console.log(this.home.seo)
     const { seo } = this.home
     const { defaultSeo } = this.global
 
