@@ -1,7 +1,5 @@
 <template>
-  <main>
     <ContentRender v-if="home.content" :content="home.content" />
-  </main>
 </template>
 
 <script>

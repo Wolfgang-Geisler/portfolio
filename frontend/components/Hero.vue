@@ -3,7 +3,7 @@
     <div class="overflow-hidden">
       <img
         src="/wave.svg"
-        class="wave-hero hidden md:block h-full w-full object-cover"
+        class="wave-hero hidden md:block h-full w-full object-cover translate-y-px"
         alt="wave"
       />
     </div>
