@@ -3,7 +3,7 @@
     <div class="overflow-hidden">
       <img
         src="/wave.svg"
-        class="wave-hero hidden md:block h-full w-full object-cover translate-y-px"
+        class="wave-hero hidden md:block h-full w-full object-cover"
         alt="wave"
       />
     </div>
@@ -70,6 +70,10 @@ export default {
 }
 </script>
 <style>
+.wave-hero {
+  margin-bottom: -1px;
+}
+
 .intro-text {
   grid-area: intro-text;
 }
