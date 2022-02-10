@@ -23,7 +23,9 @@ export default {
   },
   head() {
     const { seo } = this.page
+    console.log(this.page)
     const { defaultSeo } = this.global
+    console.log(this.global)
 
     const fullSeo = {
       ...defaultSeo,
