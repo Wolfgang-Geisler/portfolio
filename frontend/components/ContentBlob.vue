@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <img class="wave w-full" src="/wave2.svg" alt="wave2" />
+    <img class="wave-2 w-full" src="/wave2.svg" alt="wave2" />
     <div class="contentBlob-container bg-primary px-4">
       <div
         v-if="content1"
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="relative">
-      <img class="wave w-full" src="/wave3.svg" alt="wave3" />
+      <img class="wave-3 w-full" src="/wave3.svg" alt="wave3" />
     </div>
   </div>
 </template>
@@ -55,6 +55,12 @@ export default {
 }
 </script>
 <style>
+.wave-2 {
+  margin-top: -1px;
+}
+.wave-3 {
+  margin-bottom: -1px;
+}
 .content1 {
   grid-area: content1;
 }
