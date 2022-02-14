@@ -56,10 +56,10 @@ export default {
 </script>
 <style>
 .wave2-blob {
-  margin-top: -1px;
+  margin-bottom: -1px;
 }
 .wave3-blob {
-  margin-bottom: -1px;
+  margin-top: -1px;
 }
 .content1 {
   grid-area: content1;
