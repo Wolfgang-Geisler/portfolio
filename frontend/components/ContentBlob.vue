@@ -1,6 +1,8 @@
 <template>
-  <div class="wave2-blob relative">
-    <img class="w-full" src="/wave2.svg" alt="wave2" />
+    <div class="relative">
+       <div  class="wave2-blob">
+      <img class="w-full" src="/wave2.svg" alt="wave2" />
+      </div>
     <div class="contentBlob-container bg-primary px-4">
       <div
         v-if="content1"
